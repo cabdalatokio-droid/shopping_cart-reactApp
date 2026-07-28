@@ -1,0 +1,355 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* ----------- RESET ----------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ----------- BODY ----------- */
+body {
+  font-family: "Poppins", sans-serif;
+  background: #f5f7fa;
+  color: #1f2933;
+}
+
+/* ----------- GLOBAL ----------- */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  max-width: 1150px;
+  margin: auto;
+  padding: 0 15px;
+}
+
+/* ----------- NAVBAR ----------- */
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  margin-bottom: 50px;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 800;
+  color: #2563eb;
+}
+
+.links a {
+  margin: 0 12px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #374151;
+  transition: 0.2s;
+}
+
+.links a:hover {
+  color: #2563eb;
+}
+
+.cart {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #2563eb;
+  color: #fff;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ----------- PRODUCT GRID ----------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+/* ----------- CARD ----------- */
+.card {
+  height: 320px;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.18);
+}
+
+/* ----------- CARD OVERLAY ----------- */
+.card .info {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  gap: 10px; /* spacing */
+
+  background: linear-gradient(
+    0deg,
+    rgba(0,0,0,0.9),
+    rgba(0,0,0,0.4),
+    transparent
+  );
+}
+
+.card span:first-child {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.card span:last-child {
+  font-size: 1rem;
+}
+
+/* ----------- BUTTON ----------- */
+.btn {
+  position: static;
+  bottom: 15px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-primary {
+  background: #2563eb;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #1e40af;
+  transform: scale(1.1);
+}
+
+.btn-secondary {
+  background: #ef4444;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background: #dc2626;
+  transform: scale(1.1);
+}
+
+/* ----------- CART GRID ----------- */
+.cart-container {
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+}
+
+/* ----------- CART PRODUCTS ----------- */
+.cart-products {
+  background: #fff;
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+  position: relative;
+}
+
+.cart-products::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  background: linear-gradient(to right, #2563eb, #10b981);
+  border-radius: 16px 16px 0 0;
+}
+
+.cart-products h2 {
+  margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #1e3a8a;
+}
+
+/* ----------- CART ITEM ----------- */
+.cart-product {
+  display: grid;
+  grid-template-columns: 2fr 1fr auto;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 10px;
+  border-bottom: 1px solid #f1f1f1;
+  transition: 0.2s;
+}
+
+.cart-product:hover {
+  background: #f9fafb;
+}
+
+.cart-title-img {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.cart-title-img img {
+  width: 65px;
+  height: 65px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.cart-title-img span {
+  font-weight: 600;
+}
+
+.cart-product h5 {
+  font-weight: 700;
+  color: #10b981;
+}
+
+/* DELETE */
+.delete {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.delete:hover {
+  background: #dc2626;
+}
+
+/* TOTAL */
+.total-price {
+  margin-top: 20px;
+  text-align: right;
+  font-size: 20px;
+  font-weight: 700;
+  color: #1e3a8a;
+}
+
+/* ----------- PAYMENT ----------- */
+.payment-container {
+  background: #fff;
+  border-radius: 16px;
+  padding: 25px;
+  height: fit-content;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+  border-top: 4px solid #2563eb;
+}
+
+.payment-container h2 {
+  margin-bottom: 20px;
+  color: #1e3a8a;
+}
+
+/* PAYMENT CARDS */
+.payments-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.payment-card {
+  padding: 15px;
+  border-radius: 12px;
+  border: 2px solid #e5e7eb;
+  cursor: pointer;
+  text-align: center;
+  font-weight: 600;
+  transition: 0.25s;
+  position: relative;
+}
+
+.payment-card:hover {
+  border-color: #2563eb;
+  background: #eff6ff;
+}
+
+/* SELECTED */
+.payment-card.selected {
+  background: #2563eb;
+  color: white;
+  border-color: #2563eb;
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+}
+
+.payment-card.selected::after {
+  content: "✓";
+  position: absolute;
+  top: 8px;
+  right: 10px;
+}
+
+/* INPUT */
+.form-control {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+}
+
+.form-control:focus {
+  border-color: #2563eb;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* BUTTON */
+.btn-proceed {
+  margin-top: 15px;
+  width: 100%;
+  padding: 13px;
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-proceed:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
+}
+
+/* ----------- RESPONSIVE ----------- */
+@media (max-width: 900px) {
+  .cart-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .logo {
+    font-size: 22px;
+  }
+
+  .links a {
+    font-size: 14px;
+  }
+}
