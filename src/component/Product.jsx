@@ -4,15 +4,15 @@ import useShop from "../shopContext";
 const Product=({product})=>{
   const[isInCart,setCart]=useState(false);
   const{ AddToCart, removeFromCart,products}=useShop();
-useEffect(()=>{
-  const isCart=products.filter(pro=>pro.id===product.id)
-  if(isCart.length>0){
-    setCart(true)
-  }
-  else{
+useEffect(() => {
+  const isCart = products.filter(pro => pro.id === product.id);
+
+  if (isCart.length > 0) {
+    setCart(true);
+  } else {
     setCart(false);
   }
-},[products])
+}, [products, product.id]);
 
   const checktheProduct=()=>{
     if(isInCart){
