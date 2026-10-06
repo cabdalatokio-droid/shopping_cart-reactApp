@@ -6,7 +6,6 @@ export const initialState = {
 };
 
 // Centralized state management for shop/cart operations.
-// Each action describes a specific state transition.
 const shopReducer = (state, action) => {
   const { type, payload } = action;
 
