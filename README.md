@@ -1,70 +1,101 @@
-# Getting Started with Create React App
+# React Shopping Cart
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React-based shopping cart application with product browsing, cart management, and Somali mobile payment integration (Zaad, Sahal, EVC Plus) via the Waafi API.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Product Grid** — Browse available products with images, names, and prices
+- **Cart Management** — Add/remove items from cart, view cart total
+- **Payment Processing** — Integrated payment form with Zaad, Sahal, and EVC Plus options
+- **Responsive Design** — Works on mobile and desktop
 
-### `npm start`
+## Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- React 19
+- React Router DOM
+- Create React App
+- Axios (for API calls)
+- CSS custom styling
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Getting Started
 
-### `npm test`
+### Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node.js (v18 or higher recommended)
+- npm or yarn
 
-### `npm run build`
+### Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+npm install
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Running the App
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+npm start
+```
 
-### `npm run eject`
+This will start the development server at [http://localhost:3000](http://localhost:3000).
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Building for Production
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+npm run build
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+This creates a production build in the `build` folder.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Environment Variables
+
+The app requires the following environment variables for payment processing via Waafi API. Create a `.env` file in the root directory:
+
+```env
+REACT_APP_MERCHANT_U_ID=your_merchant_u_id
+REACT_APP_MERCHANT_API_USER_ID=your_api_user_id
+REACT_APP_MERCHANT_API_KEY=your_api_key
+```
+
+These are used in `src/component/Payment.jsx` to authenticate with the Waafi payment gateway.
+
+## Project Structure
+
+```
+src/
+├── component/          # Reusable UI components
+│   ├── CartProducts.jsx   # Cart display with product list and total
+│   ├── Header.jsx         # Application header
+│   ├── Payment.jsx        # Payment form with payment method selection
+│   ├── Product.jsx        # Individual product card
+│   └── Products.jsx       # Product grid component
+├── pages/              # Page components
+│   ├── about.js         # About page
+│   ├── cart.js          # Shopping cart page
+│   ├── contact.js       # Contact page
+│   └── home.js          # Home page with product listing
+├── shopContext.js      # React context for state management (cart state, products, totals)
+├── shopReducer.js      # Reducer for ADD_TO_CART and REMOVE_FROM_CART actions
+└── App.js              # Main app component with routing
+```
+
+## How It Works
+
+1. **Product Listing** — The home page displays products fetched from a local `products` array
+2. **Cart Management** — Click "+" to add items, "-" to remove. Cart state is managed via React Context (`shopContext.js`) with a reducer
+3. **Payment** — Users select a payment method (Zaad, Sahal, or EVC Plus), enter a phone number, and submit the form. The payment data is sent to the Waafi API endpoint
+
+## Payment Methods
+
+- **Zaad** — Somali mobile money service
+- **Sahal** — Somali mobile money service
+- **EVC Plus** — Somali electronic wallet service
 
 ## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- [React Documentation](https://reactjs.org/)
+- [Create React App Documentation](https://facebook.github.io/create-react-app/docs/getting-started)
+- [React Router DOM](https://reactrouter.com/en/main/start/tutorial)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+*Built with ❤️ using React and modern web technologies*
