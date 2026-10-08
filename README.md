@@ -46,17 +46,9 @@ npm run build
 
 This creates a production build in the `build` folder.
 
-## Environment Variables
+## Note
 
-The app requires the following environment variables for payment processing via Waafi API. Create a `.env` file in the root directory:
-
-```env
-REACT_APP_MERCHANT_U_ID=your_merchant_u_id
-REACT_APP_MERCHANT_API_USER_ID=your_api_user_id
-REACT_APP_MERCHANT_API_KEY=your_api_key
-```
-
-These are used in `src/component/Payment.jsx` to authenticate with the Waafi payment gateway.
+This app integrates with a third-party payment gateway (Waafi). API credentials are configured separately in an environment file that is not included in this README.
 
 ## Project Structure
 
